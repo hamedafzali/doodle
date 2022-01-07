@@ -1,0 +1,4 @@
+{
+  "apiUrl": "https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0",
+  "apiUrlDev": "https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0"
+}
