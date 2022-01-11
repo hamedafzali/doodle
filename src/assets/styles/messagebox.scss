@@ -1,0 +1,70 @@
+.app-message-container {
+  width: 100%;
+  max-width: 40rem;
+  overflow: scroll;
+  height: 91vh;
+}
+.app-message-box {
+  &-right {
+    direction: rtl;
+    text-align: left;
+  }
+}
+.app-message {
+  width: fit-content;
+  max-width: 65%;
+  padding: 1rem;
+  margin: 1rem 1.5rem 0 1.5rem;
+  border-radius: $border-radius;
+  background-color: $color_white;
+  border: 1px solid $color_border;
+  & div:first-child {
+    color: $color_font_second;
+  }
+  & div:last-child {
+    direction: ltr;
+    color: $color_font_second;
+    text-align: left;
+    margin: 0 -0.5rem -0.5rem 0;
+  }
+  &-right {
+    & div:first-child {
+      display: none;
+    }
+    & div:last-child {
+      text-align: right;
+    }
+    direction: ltr;
+    background-color: $color_message;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-message-box {
+    max-width: 100%;
+  }
+  .app-message {
+    max-width: 240px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .app-message-box {
+    &-right {
+      direction: ltr;
+      text-align: left;
+    }
+  }
+  .app-message {
+    background-color: $color_white;
+    border: none;
+
+    &-right {
+      & div:first-child {
+        display: unset;
+      }
+      background-color: $color_white;
+      border: 1px solid $color_border;
+      width: initial;
+    }
+  }
+}

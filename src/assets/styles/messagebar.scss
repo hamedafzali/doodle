@@ -1,0 +1,40 @@
+.app-message-bar {
+  position: fixed;
+  background-color: $color_primary;
+  width: 100vw;
+  height: 9vh;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 0 0;
+}
+.app-input {
+  width: 60vw;
+  height: 7vh;
+  color: $color_font_first;
+}
+.app-btn {
+  background-color: $color_secondary;
+  color: $color_white;
+  width: 10vw;
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .app-input {
+    flex: 1 1 25%;
+  }
+
+  .app-btn {
+    width: 6rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .app-message-bar {
+    background-color: $color_primary_small;
+  }
+}

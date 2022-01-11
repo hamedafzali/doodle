@@ -1,5 +1,4 @@
-@import "./assets/styles/chat.sass";
-body {
-  background: url("assets/images/Body\ BG.png") no-repeat center center fixed;
-  background-size: cover;
-}
+@import "./assets/styles/chat.scss";
+@import "./assets/styles/common.scss";
+@import "./assets/styles/messagebox.scss";
+@import "./assets/styles/messagebar.scss";
