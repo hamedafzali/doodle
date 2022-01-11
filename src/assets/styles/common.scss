@@ -1,0 +1,55 @@
+//Variables
+$color_primary: #3798d4;
+$color_secondary: #ff876d;
+$color_message: #fcf6c5;
+$color_white: #fff;
+$color_font_first: #434b54;
+$color_font_second: #b5bec5;
+$color_font_third: #b3bcc3;
+$color_border: #2e77a4;
+$color_primary_small: #d5dade;
+$color_border_small: #d4dade;
+$border-radius: 0.3rem;
+
+body {
+  background: url("../images/Body\ BG.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+input[type="text"] {
+  box-sizing: border-box;
+  border: 0.5vh solid $color_border;
+  -webkit-transition: 0.5s;
+  -ms-transform: 0.5s;
+  -o-transform: 0.5s;
+  transform: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  border-radius: $border-radius;
+  padding: 0.5rem;
+}
+
+.button {
+  text-align: center;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.app-error-box {
+  background-color: $color_secondary;
+  width: 100%;
+  margin: 0.1rem;
+  padding: 0.5rem;
+  border-radius: $border-radius;
+}
+
+@media screen and (max-width: 320px) {
+  body {
+    background: none;
+  }
+  .app-btn {
+    background-color: $color_primary_small;
+    color: $color_font_first;
+  }
+}
