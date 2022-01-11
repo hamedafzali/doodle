@@ -20,17 +20,18 @@ class Chat extends Component {
   };
   componentDidMount() {
     //It adds the first task to run in the tasks queue
-    this.state.tasks.push(this.getMessagesHandler);
+    //this.state.tasks.push(this.getMessagesHandler);
     //It retrieves previous messages
     this.getMessagesHandler();
     //It defines an interval for gathering data
-    this.intervalID = setInterval(() => this.state.tasks[0](), 3000);
+    this.intervalID = setInterval(() => this.getMessagesHandler(), 2000);
   }
   componentWillUnmount() {
     clearInterval(this.intervalID);
   }
   setCS = (status) => this.setState({ CS: status });
   getMessagesHandler = async () => {
+    //console.log(this.state.CS, this.state.messages);
     if (!this.state.CS) {
       this.setCS(true);
 
@@ -45,8 +46,9 @@ class Chat extends Component {
             this.state.messages[this.state.messages.length - 1].timestamp,
             this.state.limit
           );
+
           //If there is new data, it will be added to previous ones.
-          !data.length &&
+          data.length &&
             this.setState({ messages: [...this.state.messages, ...data] });
         }
       } catch (e) {
@@ -62,13 +64,13 @@ class Chat extends Component {
     sendMessages({ author: this.state.user.name, message })
       .then(({ data }) => {
         //If your message is posted, it is added to previous ones.
-        !data.length &&
-          this.setState(
-            { messages: [...this.state.messages, ...data] },
-            this.getMessagesHandler()
-          );
+        if (data.length) {
+          const newMessages = this.state.messages.concat(data);
+          this.setState({ ...this.state, messages: newMessages });
+        }
       })
       .catch((err) => {
+        console.log(err);
         showMessage("Somthing is wrong. Please try again", "error");
       });
     this.setCS(false);
