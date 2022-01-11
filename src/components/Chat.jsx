@@ -64,7 +64,7 @@ class Chat extends Component {
     sendMessages({ author: this.state.user.name, message })
       .then(({ data }) => {
         //If your message is posted, it is added to previous ones.
-        if (data.length) {
+        if (data) {
           const newMessages = this.state.messages.concat(data);
           this.setState({ ...this.state, messages: newMessages });
         }
